@@ -74,7 +74,6 @@ struct LabelView: View {
         Text(self.text)
             .font(Font(self.ctFont))
             .foregroundColor(self.color)
-            .padding(.leading, 5)
     }
 }
 
@@ -133,7 +132,7 @@ struct YAxisView: View {
                 LabelView(text: self.yAxis.formattedLabels()[index],
                           ctFont: self.yAxis.labelsCTFont,
                           color: self.yAxis.ref.labelsColor)
-                    .offset(y: self.labelOffsetY(at: index))
+                    .offset(x: 3, y: self.labelOffsetY(at: index))
             }
         }
     }
