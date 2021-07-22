@@ -42,7 +42,6 @@ struct YAxis: Identifiable {
                 return nil
         }
         
-        print(customMin, customMax)
         let adjustedMin = customMin ?? (minValue > 0 ? 0 : minValue)
         let adjustedMax = customMax ?? (maxValue < 0 ? 0 : maxValue)
         print(adjustedMin, adjustedMax)
