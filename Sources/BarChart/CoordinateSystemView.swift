@@ -74,6 +74,7 @@ struct LabelView: View {
         Text(self.text)
             .font(Font(self.ctFont))
             .foregroundColor(self.color)
+            .padding(.leading, 5)
     }
 }
 

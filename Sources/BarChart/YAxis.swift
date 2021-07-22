@@ -44,7 +44,7 @@ struct YAxis: Identifiable {
         
         let adjustedMin = customMin ?? (minValue > 0 ? 0 : minValue)
         let adjustedMax = customMax ?? (maxValue < 0 ? 0 : maxValue)
-        print(adjustedMin, adjustedMax)
+
         return YAxisScaler(min: adjustedMin, max: adjustedMax, maxTicks: maxTicks)
     }
     
