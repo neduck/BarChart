@@ -55,6 +55,9 @@ public class YAxisReference: AxisBase {
         }
     }
     
+    @Published public var customMin: Double? = nil
+    @Published public var customMax: Double? = nil
+    
     @Published public var formatter: ((Double, Int) -> String) = {
         return { return String(format: "%.\($1)f", $0) }
     }()

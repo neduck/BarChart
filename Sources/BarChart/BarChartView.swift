@@ -54,6 +54,8 @@ public struct SelectableBarChartView<SelectionView: View> : View {
                     .onReceive(self.config.objectWillChange) { _ in
                         self.yAxis = YAxis(frameHeight: self.yAxisHeight(proxy.size.height),
                                            data: self.config.data.yValues,
+                                           customMin: self.config.yAxis.customMin,
+                                           customMax: self.config.yAxis.customMin,
                                            ref: self.config.yAxis,
                                            labelsCTFont: self.config.labelsCTFont)
                         self.xAxis = XAxis(frameWidth: proxy.size.width - self.yAxis.maxLabelWidth,

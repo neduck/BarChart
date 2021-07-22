@@ -29,6 +29,9 @@ import SwiftUI
 struct YAxis: Identifiable {
     let id = UUID()
     let data: [Double]
+    let customMin: Double?
+    let customMax: Double?
+    
     let frameHeight: CGFloat
     let ref: YAxisReference
     let labelsCTFont: CTFont
@@ -38,8 +41,8 @@ struct YAxis: Identifiable {
             let maxValue = self.data.max() else {
                 return nil
         }
-        let adjustedMin = minValue > 0 ? 0 : minValue
-        let adjustedMax = maxValue < 0 ? 0 : maxValue
+        let adjustedMin = customMin ?? (minValue > 0 ? 0 : minValue)
+        let adjustedMax = customMax ?? (maxValue < 0 ? 0 : maxValue)
         return YAxisScaler(min: adjustedMin, max: adjustedMax, maxTicks: maxTicks)
     }
     
@@ -49,11 +52,15 @@ struct YAxis: Identifiable {
     
     init(frameHeight: CGFloat = 0,
          data: [Double] = [],
+         customMin: Double? = nil,
+         customMax: Double? = nil,
          ref: YAxisReference = YAxisReference(),
          labelsCTFont: CTFont = ChartConfiguration.defaultLabelsCTFont) {
         self.labelsCTFont = labelsCTFont
         self.frameHeight = frameHeight
         self.data = data
+        self.customMin = customMin
+        self.customMax = customMax
         self.ref = ref
     }
     
